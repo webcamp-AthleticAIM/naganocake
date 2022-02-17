@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   }
 
 
-  #scope module: :public do
+  scope module: :public do
+    resources :customers
 
-  #end
+  end
 
-  #namespace :admin do
+  namespace :admin do
+    resources :admins
 
-  #end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
