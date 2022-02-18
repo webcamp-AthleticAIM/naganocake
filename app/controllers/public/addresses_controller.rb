@@ -3,7 +3,7 @@ class Public::AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @address.save
-      redirect_to address_path
+      redirect_to addresses_path
   end
 
   def index
@@ -25,13 +25,14 @@ class Public::AddressesController < ApplicationController
   end
 
   def destroy
-    @address = Address.find(params[:id])
-    @address.destroy
+    address = Address.find(params[:id])
+    address.destroy
+    redirect_to addresses_path
   end
 
   private
 
   def address_params
-    params.riquer(:address).permit(:customer_id, :postal_code, :address, :name)
+    params.required(:address).permit(:customer_id, :postal_code, :address, :name)
   end
 end
