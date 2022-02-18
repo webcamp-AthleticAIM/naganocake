@@ -1,6 +1,6 @@
   <div class="container">
     <div class="row">
-      <div class="col-2">
+      <div class="col-3">
         <ul class="list-group">
           <li>ジャンル検索</li>
           <li>ケーキ</li>
@@ -9,10 +9,7 @@
           <li>キャンディ</li>
         </ul>
       </div>
-    </div>
-
-    <div class="row">
-      <p class="col-7">ようこそながのCAKEへ！<br>
+      <p class="col-7 card">ようこそながのCAKEへ！<br>
          このサイトは、ケーキ販売のECサイトになります。<br>
          会員でない方も、商品の閲覧は出来ますが、<br>
          購入には会員登録になります。
@@ -20,4 +17,9 @@
     </div>
 
     <h2>新着商品</h2>
+       <%# @items.each do |item| %>
+       <%#= item.image_id %>
+       <%#= item.name %>
+       <%#= item.price %>
+      <%# end %>
   </div>
