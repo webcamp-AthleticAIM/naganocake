@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>NaganoCake</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <% if admin_signed_in? %>
+            <!--「root_path」となっている箇所は、適宜修正すること-->
+            <%= link_to '商品一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to '会員一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to '注文履歴一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to 'ジャンル一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to 'ログアウト',destroy_admin_session_path,class: 'btn btn-info mx-3 mt-2' %>
+          <% elsif customer_signed_in? %>
+            <!--「root_path」となっている箇所は、適宜修正すること-->
+            <%= link_to 'マイページ',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to '商品一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to 'カート',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to 'ログアウト',destroy_customer_session_path,class: 'btn btn-info mx-3 mt-2' %>
+          <% else %>
+            <!--「root_path」となっている箇所は、適宜修正すること-->
+            <%= link_to 'About',about_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to '商品一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to '新規登録',new_customer_registration_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to 'ログイン',new_customer_session_path,class: 'btn btn-info mx-3 mt-2' %>
+          <% end %>
+        </ul>
+        <ul class="navbar-nav ml-auto mt-3">
+          <form id="form1" action="自分のサイトURL" method="get">
+          <input id="sbox1" id="s" name="s" type="text" placeholder="キーワードを入力" />
+          <input id="sbtn1" type="submit" value="検索" /></form>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+</header>
