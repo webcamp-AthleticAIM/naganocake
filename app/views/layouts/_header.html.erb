@@ -18,7 +18,7 @@
             <!--「root_path」となっている箇所は、適宜修正すること-->
             <%= link_to 'マイページ',root_path,class: 'btn btn-info mx-3 mt-2' %>
             <%= link_to '商品一覧',root_path,class: 'btn btn-info mx-3 mt-2' %>
-            <%= link_to 'カート',root_path,class: 'btn btn-info mx-3 mt-2' %>
+            <%= link_to 'カート',cart_items_path,class: 'btn btn-info mx-3 mt-2' %>
             <%= link_to 'ログアウト',destroy_customer_session_path,class: 'btn btn-info mx-3 mt-2' %>
           <% else %>
             <!--「root_path」となっている箇所は、適宜修正すること-->
