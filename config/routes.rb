@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     root :to => "homes#top"
     get '/about' => "homes#about"
     resources :customers, only: [:edit, :update]
-    get '/custmoers/mypage' => "public/customers#show"
-    get '/custmoers/unsubscribe' => "public/customers#unsubscribe"
+    get '/customers/mypage' => "customers#show"
+    get '/customers/unsubscribe' => "public/customers#unsubscribe"
     patch '/customers/withdraw' => "public/customers#withdraw"
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
