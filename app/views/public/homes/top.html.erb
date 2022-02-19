@@ -17,9 +17,11 @@
     </div>
 
     <h2>新着商品</h2>
-       <%# @items.each do |item| %>
-       <%#= item.image_id %>
-       <%#= item.name %>
-       <%#= item.price %>
-      <%# end %>
+       <% @items.each do |item| %>
+       <%= item.image_id %>
+       <%= item.name %>
+       <%= item.price %>
+       <% end %>
+
+    <%= link_to '全ての商品を見る'%>
   </div>
