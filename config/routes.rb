@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'items/index'
+  end
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
@@ -17,15 +20,15 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to => "homes#top"
     get '/about' => "homes#about"
+    patch '/customers/withdraw' => "public/customers#withdraw"
     resources :customers, only: [:edit, :update]
     get '/custmoers/mypage' => "public/customers#show"
     get '/custmoers/unsubscribe' => "public/customers#unsubscribe"
-    patch '/customers/withdraw' => "public/customers#withdraw"
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
+    get '/orders/thanks' => "public/order#thanks"
     resources :orders, only: [:index, :show, :new, :create]
     post '/orders/confirm' => "public/orders#confirm"
-    get '/orders/thanks' => "public/order#thanks"
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete '/cart_items/destroy_all' => "public/cart_items#destroy_all"
   end
