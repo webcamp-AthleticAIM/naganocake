@@ -28,7 +28,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
+  private
 
   # ストロングパラメーター
   def configure_sign_up_params
