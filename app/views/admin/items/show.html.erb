@@ -1,0 +1,11 @@
+<h1>商品詳細</h1>
+
+<%= attachment_image_tag @item, :image, size: "100x100" %>
+
+商品名<%= @item.name %>
+
+商品説明<%= @item.introduction %>
+
+税込価格（税抜価格)<%= @item.price %>
+
+販売ステータス<%= @item.sales_status %>

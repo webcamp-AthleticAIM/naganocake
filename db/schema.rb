@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2022_02_18_105046) do
     t.string "postal_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 2022_02_18_105046) do
     t.string "name"
     t.integer "price"
     t.text "introduction"
-    t.integer "image_id"
-    t.boolean "sales_status"
+    t.string "image_id"
+    t.boolean "sales_status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_02_18_105046) do
     t.integer "order_id"
     t.integer "item_quantity"
     t.integer "price"
-    t.integer "production_status"
+    t.integer "production_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,9 +94,9 @@ ActiveRecord::Schema.define(version: 2022_02_18_105046) do
     t.string "postal_code"
     t.string "address"
     t.integer "payment"
-    t.integer "postage"
+    t.integer "postage", default: 800
     t.integer "total_payment"
-    t.integer "order_status"
+    t.integer "order_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
