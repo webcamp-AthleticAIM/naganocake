@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get '/custmoers/mypage' => "public/customers#show"
     get '/custmoers/unsubscribe' => "public/customers#unsubscribe"
     patch '/customers/withdraw' => "public/customers#withdraw"
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :orders, only: [:index, :show, :new, :create]
     post '/orders/confirm' => "public/orders#confirm"
