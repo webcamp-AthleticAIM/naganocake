@@ -1,15 +1,18 @@
   <div class='container'>
     <div class='row'>
-      <div class='col-3'>
-
-      </div>
-      <div class='col-8'>
+      <%= render 'public/homes/genres' %>
+      <div class='col-9'>
         <h3>商品一覧(全<%= @items.count %>件)</h3>
-        <% @items.each do |item| %>
-        <%= attachment_image_tag item, :image, size: '100x100' %>
-        <%= item.name %>
-        ￥<%= item.add_tax_price.to_s(:delimited) %>
-        <% end %>
+        <div class='d-flex align-content-between flex-wrap'>
+          <% @items.each do |item| %>
+          <div class='mr-3'>
+          <%= attachment_image_tag item, :image, size: '180x100' %><br>
+          <%= item.name %><br>
+          ￥<%= item.add_tax_price.to_s(:delimited) %>
+          </div>
+          <% end %>
+          <%= paginate @items %>
+        </div>
       </div>
     </div>
   </div>

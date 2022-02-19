@@ -21,14 +21,14 @@ Rails.application.routes.draw do
     root :to => "homes#top"
     get '/about' => "homes#about"
     patch '/customers/withdraw' => "public/customers#withdraw"
+    get '/custmoers/mypage' => "customers#show"
+    get '/custmoers/unsubscribe' => "customers#unsubscribe"
     resources :customers, only: [:edit, :update]
-    get '/custmoers/mypage' => "public/customers#show"
-    get '/custmoers/unsubscribe' => "public/customers#unsubscribe"
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
-    resources :orders, only: [:index, :show, :new, :create]
-    get '/orders/thanks' => "order#thanks"
     post '/orders/confirm' => "orders#confirm"
+    get '/orders/thanks' => "order#thanks"
+    resources :orders, only: [:index, :show, :new, :create]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
   end
