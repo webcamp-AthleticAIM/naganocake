@@ -22,11 +22,11 @@ class Public::SessionsController < Devise::SessionsController
   protected
   #退会ステータス
   def customer_state
-    @customer = Coustomer.find_by(email: params[:customer][:email])
+    @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
-    
+
     if @customer.valid_password?(params[:customer][:password])
-      
+
     end
   end
 
