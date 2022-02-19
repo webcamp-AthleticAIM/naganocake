@@ -14,7 +14,6 @@ class Admin::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    @customer.save
   end
 
   private
