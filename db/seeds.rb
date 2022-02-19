@@ -10,3 +10,7 @@ Admin.create!(
   email: 'admin@naganocake.com', 
   password: 'admin1234'
 )
+
+Item.create!(
+  
+)

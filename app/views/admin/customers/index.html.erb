@@ -1,6 +1,24 @@
 <div class='container'>
   <h3>会員一覧</h3>
-   <table></table>
-
+   <table>
+     <thead>
+       <tr>
+         <th>会員ID</th>
+         <th>氏名</th>
+         <th>メールアドレス</th>
+         <th>ステータス</th>
+       </tr>
+     </thead>
+     <tbody>
+       <% @custmoers.each do |customer| %>
+       <tr>
+         <td><%= customer.id %></td>
+         <td><%= custmoer.%>link_to %></td>
+         <td><%= custmoer.email %></td>
+         <td><%=%></td>
+       </tr>
+       <% end %>
+     </tbody>
+   </table>
 </div>
 
