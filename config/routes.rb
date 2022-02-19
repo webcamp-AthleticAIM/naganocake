@@ -26,11 +26,11 @@ Rails.application.routes.draw do
     get '/custmoers/unsubscribe' => "public/customers#unsubscribe"
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
-    get '/orders/thanks' => "public/order#thanks"
     resources :orders, only: [:index, :show, :new, :create]
-    post '/orders/confirm' => "public/orders#confirm"
+    get '/orders/thanks' => "order#thanks"
+    post '/orders/confirm' => "orders#confirm"
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    delete '/cart_items/destroy_all' => "public/cart_items#destroy_all"
+    delete '/cart_items/destroy_all' => "cart_items#destroy_all"
   end
 
   namespace :admin do
