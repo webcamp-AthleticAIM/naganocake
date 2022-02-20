@@ -1,5 +1,8 @@
 class Admin::ItemsController < ApplicationController
 
+  before_action :customers_shut_out
+
+
 
 
   def new
@@ -21,6 +24,19 @@ class Admin::ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+  end
+
+  def index
+    @items = Item.page(params[:page])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_item_path(@item.id)
+    else
+      render :new
+    end
   end
 
 
