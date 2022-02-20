@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to => "homes#top"
     get '/about' => "homes#about"
-    get '/custmoers/mypage' => "customers#show"
-    get '/custmoers/unsubscribe' => "customers#unsubscribe"
+    get '/customers/mypage' => "customers#show"
+    get '/customers/unsubscribe' => "customers#unsubscribe"
     patch '/customers/withdraw' => "customers#withdraw"
     patch '/customers/withdraw' => "customers#withdraw"
     post '/orders/confirm' => "orders#confirm"
