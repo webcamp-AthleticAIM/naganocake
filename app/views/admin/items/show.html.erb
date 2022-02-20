@@ -1,11 +1,33 @@
-<h1>商品詳細</h1>
-
-<%= attachment_image_tag @item, :image, size: "100x100" %>
-
-商品名<%= @item.name %>
-
-商品説明<%= @item.introduction %>
-
-税込価格（税抜価格)<%= @item.price %>
-
-販売ステータス<%= @item.sales_status %>
+<div class="container">
+    <div class="row">
+        <h3>商品詳細</h3>
+        <div class="mt-5 col-md-5">
+            <%= attachment_image_tag @item, :image, size: "300x300" %>
+        </div>
+        <div class="mt-5 col-md-5">
+            <div class="row">
+                <p class="col-md-4">商品名</p>
+                <p class="col-md-8"><%= @item.name %></p>
+            </div>
+            <div class="row">
+                <p class="col-md-4">商品説明</p>
+                <p class="col-md-8"><%= @item.introduction %></p>
+            </div>
+            <div class="row">
+                <p class="col-md-4">税込価格<br>(税抜価格)</p>
+                <p class="col-md-8"><%= @item.add_tax_price.to_s(:delimited) %>( <%= @item.price %> ) 円</p>
+            </div>
+            <div class="row">
+                <p class="col-md-4">販売ステータス</p>
+                <p class="col-md-8">
+                    <% if @item.sales_status == true %>
+                      <strong><span class="text-success">販売中</span></strong>
+                    <% elsif @item.sales_status == false %>
+                      <strong><span class="text-muted">販売停止中</span></strong>
+                    <% end %>
+                </p>
+            </div>
+            <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success btn-lg pull-right" %>
+        </div>
+    </div>
+</div>

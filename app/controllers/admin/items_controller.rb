@@ -1,5 +1,13 @@
 class Admin::ItemsController < ApplicationController
 
+<<<<<<< HEAD
+=======
+  before_action :customers_shut_out
+
+
+
+
+>>>>>>> origin/develop
   def new
     @item = Item.new
   end
@@ -21,6 +29,29 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+<<<<<<< HEAD
+=======
+  def index
+    @items = Item.page(params[:page])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_item_path(@item.id)
+    else
+      render :new
+    end
+  end
+
+
+
+
+
+
+
+
+>>>>>>> origin/develop
   private
 
   def item_params
