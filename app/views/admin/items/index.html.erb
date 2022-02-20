@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 mx-auto">
+      <h1>商品一覧</h1>
+      <%= link_to "新規登録", new_admin_item_path %>
+        <table>
+          <thead>
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <% @items.each do |item| %>
+          <tbody>
+            <tr>
+              <td><%= item.id %></td>
+              <td><%= item.name %></td>
+              <td><%= item.price %></td>
+              <td>
+                <% if item.sales_status == true %>
+                  <strong><span class="text-success">販売中</span></strong>
+                <% elsif item.sales_status == false %>
+                  <strong><span class="text-muted">販売停止中</span></strong>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+          <% end %>
+          <%= paginate @items %>
+        </table>
+    </div>
+  </div>
+</div>
