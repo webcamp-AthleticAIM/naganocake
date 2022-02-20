@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'items/index'
-  end
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -21,16 +13,16 @@ Rails.application.routes.draw do
     root :to => "homes#top"
     get '/about' => "homes#about"
     patch '/customers/withdraw' => "public/customers#withdraw"
-    get '/custmoers/mypage' => "customers#show"
-    get '/custmoers/unsubscribe' => "customers#unsubscribe"
+    get '/customers/mypage' => "customers#show"
+    get '/customers/unsubscribe' => "customers#unsubscribe"
     resources :customers, only: [:edit, :update]
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
     post '/orders/confirm' => "orders#confirm"
     get '/orders/thanks' => "order#thanks"
     resources :orders, only: [:index, :show, :new, :create]
-    resources :cart_items, only: [:index, :create, :update, :destroy]
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
+    resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
   namespace :admin do

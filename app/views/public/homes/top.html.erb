@@ -8,19 +8,13 @@
       </p>
     </div>
 
-      <div class='col-9 pull-right'>
+    <div class='row'>
+      <div class='col-10 ml-auto'>
         <h3>新着商品</h3>
-        <div class='d-flex align-content-between flex-wrap'>
-          <% @items.each do |item| %>
-          <div class='mr-3'>
-          <%= attachment_image_tag item, :image, size: '180x100' %><br>
-          <%= item.name %><br>
-          ￥<%= item.add_tax_price.to_s(:delimited) %>
-          </div>
-          <% end %>
-          <%#= paginate @items %>
+        <%= render 'public/items/index', items: @items %>
+        <div class='text-right mt-3'>
+          <%= link_to '全ての商品を見る>', items_path %>
         </div>
-      </div>
-
-    <%= link_to '全ての商品を見る', items_path %>
+       </div>
+    </div>
   </div>
