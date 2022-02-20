@@ -11,8 +11,10 @@
       </ul>
       <% end %>
 
-  <!-- 商品画像 -->
+
       <%= form_with model:@item, url: admin_items_path, local:true do |f| %>
+      
+      <!-- 商品画像 -->
       <div class="from-group">
         <%= f.label :商品画像 %>
         <%= f.attachment_field :image %>
@@ -44,6 +46,9 @@
         <%= f.radio_button :sales_status, false %>
         <%= f.label :sales_status, "販売停止中", value: :false %>
       </div>
+
+      <!--部分テンプレート-->
+      <%#= render 'from_item', item: @item %>
 
   <!-- 新規登録ボタン -->
       <%= f.submit '新規登録', class: 'btn btn-primary' %>
