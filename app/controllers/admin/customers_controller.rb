@@ -18,6 +18,7 @@ class Admin::CustomersController < ApplicationController
 
   private
   def customer_params
+
   end
 
 end
