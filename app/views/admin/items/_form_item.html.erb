@@ -1,17 +1,4 @@
-<div class="container">
-    <div class="row">
-        <h3>商品編集</h3>
-        <% if @item.errors.any? %>
-        <%= @item.errors.count %>件のエラーが発生しました
-        <ul>
-            <% @item.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-        </ul>
-        <% end %>
-        <%= form_with model:@item, url: admin_item_path, local: true do |f| %>
-
-        <!-- 商品画像 -->
+<!-- 商品画像 -->
       <div class="from-group">
         <%= f.label :商品画像 %>
         <%= f.attachment_field :image %>
@@ -43,13 +30,3 @@
         <%= f.radio_button :sales_status, false %>
         <%= f.label :sales_status, "販売停止中", value: :false %>
       </div>
-
-        <%#= render 'from_item', item: @item %>
-
-
-
-        <%= f.submit '変更を保存', class: 'btn btn-primary' %>
-
-        <% end %>
-    </div>
-</div>
