@@ -8,7 +8,7 @@ class Public::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
-    
+
     # findとfind_byの違い
     if !CartItem.find_by(item_id: @cart_item.item.id).nil?
       new_cart_item = CartItem.find_by(item_id: @cart_item.item.id)
@@ -25,7 +25,8 @@ class Public::CartItemsController < ApplicationController
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update!(item_amount: params[:item_amount].to_i)
+
+    @cart_item.update(item_amount: params[:item_amount].to_i)
     redirect_to cart_items_path
   end
 
