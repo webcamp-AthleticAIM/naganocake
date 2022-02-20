@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row mx-5">
+    <div class="col-md-3">
+      <table class="table">
+        <thead>
+          <tr><th>ジャンル検索</th></tr>
+          <tr><td>ケーキ</td></tr>
+          <tr><td>焼き菓子</td></tr>
+          <tr><td>プリン</td></tr>
+          <tr><td>キャンディ</td></tr>
+        </thead>
+      </table>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <div class="d-flex">
+        <div class="image">
+          <%= attachment_image_tag @item, :image, size: "200x200" %>
+        </div>
+        <div class="discription ml-3">
+          <div class="h3"><%= @item.name %></div>
+          <div class><%= @item.introduction %></div>
+          <div class="mt-5">
+            <span>¥<%= @item.with_tax_price %></strong></span>
+            <span>(税込)</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group float-right mt-3">
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post,local: true do |f| %>
+          <%= f.hidden_field :item_id,value: @item.id %>
+          <%= f.select :item_amount, *[1..100] %>
+          <%= f.submit "カートに入れる",class:"btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
