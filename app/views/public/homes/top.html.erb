@@ -1,27 +1,20 @@
   <div class="container">
     <div class="row">
-      <div class="col-3">
-        <ul class="list-group">
-          <li>ジャンル検索</li>
-          <li>ケーキ</li>
-          <li>焼き菓子</li>
-          <li>プリン</li>
-          <li>キャンディ</li>
-        </ul>
-      </div>
+      <%= render 'genres' %>
       <p class="col-7 card">ようこそながのCAKEへ！<br>
          このサイトは、ケーキ販売のECサイトになります。<br>
          会員でない方も、商品の閲覧は出来ますが、<br>
-         購入には会員登録になります。
+         購入には会員登録が必要になります。
       </p>
     </div>
 
-    <h2>新着商品</h2>
-       <% @items.each do |item| %>
-       <%= item.image_id %>
-       <%= item.name %>
-       <%= item.price %>
-       <% end %>
-
-    <%= link_to '全ての商品を見る'%>
+    <div class='row'>
+      <div class='col-10 ml-auto'>
+        <h3>新着商品</h3>
+        <%= render 'public/items/index', items: @items %>
+        <div class='text-right mt-3'>
+          <%= link_to '全ての商品を見る>', items_path %>
+        </div>
+       </div>
+    </div>
   </div>
