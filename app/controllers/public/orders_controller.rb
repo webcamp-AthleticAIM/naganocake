@@ -2,17 +2,26 @@ class Public::OrdersController < ApplicationController
 
   def new
     @customer = current_customer
+    @current_addresses = Customer.select(:postal_code, :address, :telephone_number)
     @order = Order.new
   end
 
+  def confirm
+    
+  end
+  
   def create
+
+  end
+  
+  def thanks
+  end
+
+  def index
 
   end
 
   def show
-  end
-
-  def thanks
   end
 
   private
