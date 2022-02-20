@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to => "homes#top"
     get '/about' => "homes#about"
-    patch '/customers/withdraw' => "public/customers#withdraw"
+    patch '/customers/withdraw' => "customers#withdraw"
     get '/customers/mypage' => "customers#show"
     get '/customers/unsubscribe' => "customers#unsubscribe"
     resources :customers, only: [:edit, :update]
