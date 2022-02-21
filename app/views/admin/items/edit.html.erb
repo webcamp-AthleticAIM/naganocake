@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container mt-3">
+  <h3>商品編集</h3>
     <div class="row">
-        <h3>商品編集</h3>
+      <div class="mx-auto col-md-5">
+
         <% if @item.errors.any? %>
         <%= @item.errors.count %>件のエラーが発生しました
         <ul>
@@ -51,5 +53,6 @@
         <%= f.submit '変更を保存', class: 'btn btn-primary' %>
 
         <% end %>
+        </div>
     </div>
 </div>
