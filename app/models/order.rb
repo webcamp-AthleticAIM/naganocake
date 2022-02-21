@@ -7,6 +7,9 @@ class Order < ApplicationRecord
 
   enum payment: { credit_card: 0, transfer: 1 }
 
+  def order_addresses
+    Order.select(:postal_code, :address, :name)
+  end
 
   validates :name, :postal_code, :address, presence: true
 end
