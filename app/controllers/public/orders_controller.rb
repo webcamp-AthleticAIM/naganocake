@@ -1,10 +1,11 @@
 class Public::OrdersController < ApplicationController
 
   def new
-    p @order = Order.new
-    p @order.customer_id = current_customer.id
+    @order = Order.new
+    @order.customer_id = current_customer.id
     @current_addresses = Customer.select(:postal_code, :address, :last_name, :first_name)
-
+    @order.name = current_customer.first_name + current_customer.last_name
+    
   end
 
   def confirm
