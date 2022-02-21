@@ -8,10 +8,18 @@
   padding: 0;
 }
 
-.admin_customers {
-  width: 300px;
+body {
+  font-text: 20px;
+  box-sizing: border-box;
+  background: #fffaf0;
 }
 
-.admin_customers_radio {
-  margin-right: 40px;
+.container {
+  margin-top: 50px;
+}
+
+h2,
+h3 {
+  display: inline-block;
+  border-bottom: solid 2px #ff7f50;
 }
