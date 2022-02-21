@@ -1,16 +1,16 @@
 <div class="container">
   <div="row">
     <h3>注文情報確認</h3>
-      <%= form_with( model: [@order, @cart_item], local: true, url: {action: :create}) do |f| %> 
+      <%= form_with( model: @order, local: true, url: {action: :create}) do |f| %>
       <div class="col">
-        
+
       </div>
-      
+
       <div class="col">
-        
+
       </div>
-      
-      <% f.submit
+
+      <%= f.submit "注文を確定する", class: 'btn btn-success' %>
     <% end %>
   </div>
 </div>
