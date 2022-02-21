@@ -1,6 +1,6 @@
   <div class='container'>
     <h3>会員詳細</h3>
-      <table>
+      <table class="table table-borderless table-sm">
         <tr>
           <td>会員ID</td>
           <td><%= @customer.id %></td>
@@ -50,7 +50,7 @@
         <tr>
           <td></td>
           <td>
-            <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: 'btn btn-success btn-sm' %>
+            <%= link_to '編集する', edit_admin_customer_path(@customer), class: 'btn btn-success btn-sm' %>
             <%= link_to '注文履歴一覧', orders_path, class: 'btn btn-primary btn-sm' %>
           </td>
         </tr>
