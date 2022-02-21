@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row ml-auto mt-5">
+    <div class="bg-light text-secondary"><h2>注文履歴詳細一覧</h2></div>
+    <table class="table mt-5">
+      <tbody>
+        <tr>
+          <td><span><strong>購入者</strong></span></td>
+          <td><%= @order.name %></td>
+        </tr>
+        <tr>
+          <td><span><strong>注文日</strong></span></td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td><span><strong>配送先</strong></span></td>
+          <td>
+            <span>〒</span>
+            <%= @order.postal_code %>
+            <span> </span>
+            <%= @order.address %>
+          </td>
+        </tr>
+        <tr>
+          <td><span><strong>支払い方法</strong></span></td>
+          <td><% payment_eg = Order.payment_methods.key((@order.payment).to_i) %>
+              <%= Order.payment_methods_i18n[payment_eg] %>
+          </td>
+        </tr>
+        <tr>
+          <td><span><strong>注文ステータス</strong></span></td>
+          <td>
+            <%= form_with model: @order,url: admin_order_path(@order),method: :pacth,local: true do |f| %>
+              <% order_status_eg = Order.order_status_methods.key((@order.order_status).to_i) %>
+              <%= order_status_jp = Order.order_status_methods_i18n[order_status_eg] %>
+              <%= f.select :order_status, options_from_collection_for_select(Order.order_status_methods)  %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row">
+      <table
+
+    </div>
+    <table>
+
+    </table>
+  </div>
+</div>

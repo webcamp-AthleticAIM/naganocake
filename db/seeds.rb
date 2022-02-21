@@ -7,6 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create!(
-  email: 'admin@naganocake.com', 
+  email: 'admin@naganocake.com',
   password: 'admin1234'
+)
+
+Order.create!(
+  customer_id: 1,
+  name: 'hogehoge',
+  postal_code: '1234567',
+  address: '東京都代々木一丁目',
+  payment: 0,
+  postage: 800,
+  total_payment: 972,
+  order_status: 0,
+)
+
+OrderDetail.create!(
+       item_id: 1,
+       order_id: 1,
+       item_quantity: 1,
+       price: 432,
+       production_status: 0
 )
