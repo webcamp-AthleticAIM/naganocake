@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  before_action:authenticate_customer!
 
   def index
     @total_price = 0
@@ -9,25 +10,23 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
 
-    # findとfind_byの違い
     if !CartItem.find_by(item_id: @cart_item.item.id).nil?
       new_cart_item = CartItem.find_by(item_id: @cart_item.item.id)
       new_cart_item.item_amount += @cart_item.item_amount.to_i
       new_cart_item.save
       redirect_to cart_items_path
     else
-      puts 'test'
-      @cart_item.save!
+      @cart_item.save
       redirect_to cart_items_path
     end
 
   end
 
   def update
-    @cart_item = CartItem.find(params[:id])
-
-    @cart_item.update(item_amount: params[:item_amount].to_i)
-    redirect_to cart_items_path
+   @cart_item = CartItem.find(params[:id])
+   @cart_item.customer_id = current_customer.id
+   @cart_item.update(cart_item_params)
+   redirect_to cart_items_path
   end
 
   def destroy

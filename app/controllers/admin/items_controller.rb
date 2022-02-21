@@ -1,9 +1,6 @@
 class Admin::ItemsController < ApplicationController
 
-  before_action :customers_shut_out
-
-
-
+  # before_action :customers_shut_out
 
   def new
     @item = Item.new
