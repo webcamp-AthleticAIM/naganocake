@@ -27,8 +27,17 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  #ログイン後、マイページに遷移
+  def after_sign_up_path_for(resource)
+    customers_mypage_path
+  end
 
-  private
+  #ログアウト後、トップページに遷移
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+  protected
 
   # ストロングパラメーター
   def configure_sign_up_params
@@ -43,15 +52,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
 
-  #ログイン後、マイページに遷移
-  def after_sign_up_path_for(resource)
-    customers_mypage_path
-  end
 
-  #ログアウト後、トップページに遷移
-  def after_sign_out_path_for(resource)
-    root_path
-  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
