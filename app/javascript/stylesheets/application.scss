@@ -2,10 +2,22 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-
+//共通部分
 * {
   margin: 0;
   padding: 0;
 }
 
 
+body {
+  font-size: 20px;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+h2,
+h3 {
+  margin-bottom: 30px;
+}
