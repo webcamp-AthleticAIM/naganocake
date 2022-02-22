@@ -12,32 +12,32 @@
             </tr>
           </thead>
           <tbody>
-            <% @cart_items.each do |order| %>
+            <%# @cart_items.each do |order| %>
             <tr>
               <td>
-                <%= attachment_image_tag cart_item.item, :image, size: "100x100" %>
-                <%= order.item.name %>
+                <%#= attachment_image_tag cart_item.item, :image, size: "100x100" %>
+                <%#= order.item.name %>
               </td>
               <td>
-                <%= order.item.add_tax_price %>
+                <%#= order.item.add_tax_price %>
               </td>
               <td>
-                <%= order.item_amount %>
+                <%#= order.item_amount %>
               </td>
               <td>
-                <%= lorder.subtota %>
+                <%#= order.subtota %>
               </td>
             </tr>
-            <% end %>
+            <%# end %>
           </tbody>
         </table>
         <div>
-          <label>支払方法</label>  <%= @order.payment %>
+          <label>支払方法</label>  <%= @order.payment_i18n %>
         </div>
         <div>
           <label>お届け先</label>
           〒　<%= @order.postal_code %> <%= @order.address %></br>
-          
+          <%= @order.name %>
         </div>
       </div>
 
