@@ -15,7 +15,7 @@
       <div class="category">
         <h5>お届け先</h5>
         <div>
-          <%= f.radio_button :order_addresses, @current_addresses %>
+          <%= f.radio_button :order_addresses, Order.order_addresses.key(0) %>
           <%= f.label :order_addresses, "ご自身の住所", value: @current_addresses  %></br>
 
           〒 <%= current_customer.postal_code %> <%= current_customer.address %></br>
@@ -23,12 +23,12 @@
         </div>
       </div>
         <div class="category">
-          <%= f.radio_button :order_addresses, :address_id  %>
-          <%= f.label :order_addresses, "登録済住所から選択", value: Address.id  %></br>
-          <%= f.select Address.id, options_from_collection_for_select(current_customer.addresses, :id, :address_display) %>
+          <%= f.radio_button :order_addresses, Order.order_addresses.key(1) %>
+          <%#= f.label :order_addresses, "登録済住所から選択", value: Address.id %></br>
+          <%#= f.select Address.id, options_from_collection_for_select(current_customer.addresses, :id, :address_display) %>
         </div>
         <div class="category">
-          <%= f.radio_button :order_addresses, @order %>
+          <%= f.radio_button :order_addresses, Order.order_addresses.key(2) %>
           <%= f.label :order_addresses, "新しいお届け先", value: @order %></br>
           <div>
             <div>

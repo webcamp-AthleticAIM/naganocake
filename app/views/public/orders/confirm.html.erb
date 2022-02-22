@@ -2,7 +2,6 @@
     <h3>注文情報確認</h3>
     <div class="row">
       <div class="col-md-8 offset-md-1">
-      <%= form_with( model: @order, local: true, url: {action: :create}) do |f| %>
         <table class="table">
           <thead>
             <tr>
@@ -26,19 +25,19 @@
                 <%= order.item_amount %>
               </td>
               <td>
-                <%= order.subtotal %>
+                <%= lorder.subtota %>
               </td>
             </tr>
             <% end %>
           </tbody>
         </table>
         <div>
-          <%= f.label '支払い方法' %>  <%= @order.payment %>
+          <label>支払方法</label>  <%= @order.payment %>
         </div>
         <div>
-          <%= f.label 'お届け先' %>
+          <label>お届け先</label>
           〒　<%= @order.postal_code %> <%= @order.address %></br>
-          <%= @order.name %>
+          
         </div>
       </div>
 
@@ -61,6 +60,10 @@
         </table>
       </div>
       <div class="row text-center">
+        <%= form_with( model: @order, local: true, url: {action: :create}) do |f| %>
+          <%= f.hidden_field :payment %>
+          <%= f.hidden_field :order_addresses %>
+
         <%= f.submit "注文を確定する", class: 'btn btn-success' %>
       </div>
     <% end %>
