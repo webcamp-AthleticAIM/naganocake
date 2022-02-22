@@ -10,3 +10,9 @@ ja:
         in_production: "製作中"
         preparing: "発送準備中"
         sent: "製作完了"
+    order_detail:
+      production_status_method:
+        production_impossible: "着手不可"
+        production_wait: "製作待ち"
+        in_production: "製作中"
+        production_completed: "製作完了"

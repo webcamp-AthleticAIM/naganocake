@@ -29,10 +29,9 @@
         <tr>
           <td><span><strong>注文ステータス</strong></span></td>
           <td>
-            <%= form_with model: @order,url: admin_order_path(@order),method: :pacth,local: true do |f| %>
-              <% order_status_eg = Order.order_status_methods.key((@order.order_status).to_i) %>
-              <%= order_status_jp = Order.order_status_methods_i18n[order_status_eg] %>
-              <%= f.select :order_status, options_from_collection_for_select(Order.order_status_methods)  %>
+            <%= form_with model: @order,url: admin_order_path(@order),method: :patch,local: true do |f| %>
+              <%= f.select :order_status_method, options_for_select(Order.order_status_methods.keys.map {|k| [I18n.t("enums.order.order_status_method.#{k}"), k]},Order.order_status_methods.key(@order.order_status))%>
+              <%= f.submit "更新",class:"btn btn-success" %>
             <% end %>
           </td>
         </tr>
@@ -40,11 +39,50 @@
     </table>
 
     <div class="row">
-      <table
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th><strong>商品名</strong></th>
+              <th><strong>単価（税込）</strong></th>
+              <th><strong>数量</strong></th>
+              <th><strong>小計</strong></th>
+              <th><strong>製作ステータス</strong></th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.price %></td>
+              <td><%= order_detail.item_quantity %></td>
+              <td><%= order_detail.price*order_detail.item_quantity %></td>
 
-    </div>
-    <table>
-
-    </table>
+              <%= form_with model: order_detail,url: admin_order_order_detail_path(order_detail),method: :patch,local: true do |f| %>
+              <td><%= f.select :production_status_method, options_for_select(OrderDetail.production_status_methods.keys.map {|k| [I18n.t("enums.order_detail.production_status_method.#{k}"), k]},OrderDetail.production_status_methods.key(order_detail.production_status)) %></td>
+              <td><%= f.submit "更新",class:"btn btn-success" %></td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class>
+        <table>
+          <tbody>
+            <tr></tr>
+          </tbody>
+        </table>
+        <div>
+          <span><strong>合計金額</strong><%= @order.total_payment %></span>
+        </div>
+        <div>
+          <span><strong>送料</strong><%= @order.postage %></span>
+        </div>
+        <div>
+          <span><strong>請求金額</strong><%= @order.total_payment+@order.postage %></span>
+        </div>
+      </div>
   </div>
 </div>

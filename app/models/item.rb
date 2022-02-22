@@ -6,11 +6,12 @@ class Item < ApplicationRecord
   # belongs_to:genre
 
   attachment :image
-  
-  
+  has_many :order_details,dependent: :destroy
+
+
       # 消費税を加えた商品価格
     def add_tax_price
         (self.price * 1.08).round
     end
-  
+
 end
