@@ -5,58 +5,56 @@
     <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <label>名前</label>
+      <div class="col mb-2">
+        <%= f.label '名前' %>
         (姓) <%= f.text_field :last_name, placeholder: "令和" %>
         (名) <%= f.text_field :first_name, placeholder: "道子" %>
       </div>
 
-      <div class="field">
-        <label>フリガナ</label>
+      <div class="col mb-2">
+        <%= f.label 'フリガナ' %>
         (姓) <%= f.text_field :last_name_kana, placeholder: "レイワ" %>
         (名) <%= f.text_field :first_name_kana, placeholder: "ミチコ" %>
       </div>
 
-      <div class="field">
-        <label>メールアドレス</label>
+      <div class="col mb-2">
+        <%= f.label 'メールアドレス' %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'sample@example.com' %>
       </div>
 
-      <div class="field">
-        <label>郵便番号(ハイフンなし)</label>
+      <div class="col mb-2">
+        <%= f.label '郵便番号（ハイフンなし）' %>
         <%= f.text_field :postal_code, placeholder: "0000000" %>
       </div>
 
-      <div class="field">
-        <label>住所</label>
+      <div class="col mb-2">
+        <%= f.label '住所' %>
         <%= f.text_field :address, placeholder: '東京都渋谷区代々木神園町0-0' %>
       </div>
 
-      <div class="field">
-        <label>電話番号(ハイフンなし)</label>
+      <div class="col mb-2">
+        <%= f.label '電話番号（ハイフンなし）' %>
         <%= f.text_field :telephone_number, placeholder: '0000000000' %>
       </div>
 
-      <div class="field">
-        <label>パスワード
+      <div class="col mb-2">
+        <%= f.label 'パスワード' %>
         <% if @minimum_password_length %>
-        (<%= @minimum_password_length %> 文字以上)</label>
+        (<%= @minimum_password_length %> 文字以上)
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
-        <label>パスワード(確認用)</label>
+      <div class="col mb-2">
+        <%= f.label 'パスワード（確認用）' %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
       <div class="actions text-center">
-        <%= f.submit "新規登録", class: 'btn btn-success btn-sm mt-4' %>
+        <%= f.submit "新規登録", class: 'btn btn-success' %>
       </div>
     <% end %>
   </div>
-  <h4 class='mt-4'><mark>既に登録済みの方</mark></h4>
-  <div class="row">
+  <p class='ml-5'><mark>既に登録済みの方</mark></p>
     <%= render "public/shared/links" %>
-  </div>
 </div>
