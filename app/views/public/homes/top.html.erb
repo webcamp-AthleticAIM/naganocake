@@ -1,16 +1,18 @@
-  <div class="container">
-    <div class="row mt-3">
+  <div class='container'>
+    <div class='row mt-3'>
       <%= render 'genres' %>
-        <p class="col-7 mx-auto mt-5">ようこそながのCAKEへ！<br>
-         このサイトは、ケーキ販売のECサイトになります。<br>
-         会員でない方も、商品の閲覧は出来ますが、<br>
-         購入には会員登録が必要になります。
-        </p>
+        <div class='top-back'>
+          <p class='col-12 mx-auto mt-4'><strong>ようこそながのCAKEへ！</strong><br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も、商品の閲覧は出来ますが、<br>
+            購入には会員登録が必要になります。
+          </p>
+        </div>
     </div>
 
     <div class='row'>
       <div class='col-10 ml-auto mt-5'>
-        <h4>新着商品</h4>
+        <h3><mark>新着商品</amrk></h3>
         <%= render 'public/items/index', items: @items %>
         <div class='text-right mt-3'>
           <%= link_to '全ての商品を見る>', items_path %>
