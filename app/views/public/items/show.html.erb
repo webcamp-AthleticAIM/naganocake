@@ -1,20 +1,10 @@
 <div class="container mt-5">
   <div class="row mx-5">
-    <div class="col-md-3">
-      <table class="table">
-        <thead>
-          <tr><th>ジャンル検索</th></tr>
-          <tr><td>ケーキ</td></tr>
-          <tr><td>焼き菓子</td></tr>
-          <tr><td>プリン</td></tr>
-          <tr><td>キャンディ</td></tr>
-        </thead>
-      </table>
-    </div>
+    <%= render 'public/homes/genres' %>
     <div class="col-md-8 offset-md-1">
       <div class="d-flex">
         <div class="image">
-          <%= attachment_image_tag @item, :image, size: "200x200" %>
+          <%= attachment_image_tag @item, :image, size: "300x200" %>
         </div>
         <div class="discription ml-3">
           <div class="h3"><%= @item.name %></div>
@@ -29,7 +19,7 @@
         <%= form_with model: @cart_item, url: cart_items_path, method: :post,local: true do |f| %>
           <%= f.hidden_field :item_id,value: @item.id %>
           <%= f.select :item_amount, *[1..100] %>
-          <%= f.submit "カートに入れる",class:"btn btn-success" %>
+          <%= f.submit "カートに入れる",class:"btn btn-success btn-sm ml-3" %>
         <% end %>
       </div>
     </div>
