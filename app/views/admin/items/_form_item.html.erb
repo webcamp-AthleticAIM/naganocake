@@ -1,32 +1,40 @@
+<%= form_with model:item, local: true do |f| %>
+
 <!-- 商品画像 -->
-      <div class="from-group">
-        <%= f.label :商品画像 %>
-        <%= f.attachment_field :image %>
-      </div>
+<div class="from-group row">
+ <%= f.label :商品画像, class: "col-md-4" %>
+ <%= f.attachment_field :image, class: "col-md-8" %>
+</div>
 
-  <!-- 商品名 -->
-      <div class="from-group">
-        <%= f.label :商品名 %>
-        <%= f.text_field :name %>
-      </div>
+<!-- 商品名 -->
+<div class="from-group row">
+  <%= f.label :商品名, class: "col-md-4 mt-3" %>
+  <%= f.text_field :name, placeholder: "商品名", class: "col-md-7 mt-3" %>
+</div>
 
-  <!-- 商品説明 -->
-      <div class="from-group">
-        <%= f.label :商品説明 %>
-        <%= f.text_area :introduction %>
-      </div>
+<!-- 商品説明 -->
+<div class="from-group row">
+　<%= f.label :商品説明, class: "col-md-4 mt-3" %>
+  <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "col-md-7 mt-3" %>
+</div>
 
-  <!-- 商品の税抜き価格 -->
-      <div class="from-group">
-        <%= f.label :税抜価格 %>
-        <%= f.text_field :price %>円
-      </div>
+<!-- 商品の税抜き価格 -->
+<div class="from-group row">
+　<%= f.label :税抜価格, class: "col-md-4 mt-3" %>
+　<%= f.text_field :price, placeholder: "1000", class: "col-md-7 mt-3" %>
+  <div class="col-md-1 mt-4">円</div>
+</div>
 
-  <!-- 販売ステータス -->
-      <div class="from-group">
-        <%= f.label :販売ステータス %>
-        <%= f.radio_button :sales_status, true %>
-        <%= f.label :sales_status, "販売中", value: :true %>
-        <%= f.radio_button :sales_status, false %>
-        <%= f.label :sales_status, "販売停止中", value: :false %>
-      </div>
+<!-- 販売ステータス -->
+<div class="from-group row">
+　<%= f.label :販売ステータス, class: "col-md-4 mt-3" %>
+　<%= f.radio_button :sales_status, true, class: "col-md-1 mt-4" %>
+　<%= f.label :sales_status, "販売中", value: :true, class: "mt-3" %>
+　<%= f.radio_button :sales_status, false, class: "col-md-1 mt-4" %>
+  <%= f.label :sales_status, "販売停止中", value: :false, class: "mt-3" %>
+</div>
+<div class="row">
+        <!-- 新規登録ボタン -->
+        <%= f.submit class: 'btn btn-success mx-auto mt-3' %>
+
+<% end %>
