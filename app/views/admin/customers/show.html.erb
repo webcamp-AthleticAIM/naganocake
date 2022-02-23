@@ -1,6 +1,6 @@
-  <div class='container'>
-    <h3>会員詳細</h3>
-      <table class="table table-borderless table-sm">
+  <div class='container mt-3'>
+    <h3><mark><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</mark></h3>
+      <table class="table table-borderless table-sm mt-3">
         <tr>
           <td>会員ID</td>
           <td><%= @customer.id %></td>
@@ -44,7 +44,11 @@
         <tr>
           <td>会員ステータス</td>
           <td>
-            <%= @customer.is_deleted %>
+            <% if @customer.is_deleted == true %>
+              <strong><span class="text-success">有効</span></strong>
+            <% elsif @customer.is_deleted == false %>
+              <strong><span class="text-muted">退会</span></strong>
+            <% end %>
           </td>
         </tr>
         <tr>
