@@ -25,13 +25,13 @@ class Public::OrdersController < ApplicationController
         @order.address = Address.find(params[:order][:address_id]).address
         @order.postal_code = Address.find(params[:order][:address_id]).postal_code
       else
+        flash.now[:notice] = '配送先が登録されていません'
         render 'new'
-
       end
     elsif params[:order][:order_addresses] == '2' && @order.postal_code? && @order.address? && @order.name?
     else
+      flash.now[:notice] = '未選択の選択肢があります'
       render 'new'
-
     end
   end
 

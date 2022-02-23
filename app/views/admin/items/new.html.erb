@@ -38,6 +38,12 @@
         <%= f.text_field :price %>円
       </div>
 
+  <!-- ジャンル選択 -->
+      <div class="form-group">
+        <%= f.label :ジャンル %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+      </div>
+
   <!-- 販売ステータス -->
       <div class="from-group">
         <%= f.label :販売ステータス %>
