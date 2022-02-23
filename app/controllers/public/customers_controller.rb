@@ -13,8 +13,6 @@ class Public::CustomersController < ApplicationController
     end
   end
 
-
-
   def show
     @customer = current_customer
   end
