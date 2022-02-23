@@ -1,10 +1,5 @@
 class Admin::ItemsController < ApplicationController
 
-  before_action :customers_shut_out
-
-
-
-
   def new
     @item = Item.new
   end
@@ -38,13 +33,6 @@ class Admin::ItemsController < ApplicationController
       render :new
     end
   end
-
-
-
-
-
-
-
 
   private
 

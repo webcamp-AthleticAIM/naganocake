@@ -12,17 +12,18 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to => "homes#top"
     get '/about' => "homes#about"
-    patch '/customers/withdraw' => "customers#withdraw"
-    resources :customers, only: [:edit, :update]
     get '/customers/mypage' => "customers#show"
     get '/customers/unsubscribe' => "customers#unsubscribe"
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :items, only: [:index, :show]
-    resources :orders, only: [:index, :show, :new, :create]
-    get '/orders/thanks' => "order#thanks"
-    post '/orders/confirm' => "orders#confirm"
-    resources :cart_items, only: [:index, :create, :update, :destroy]
+    patch '/customers/withdraw' => "customers#withdraw"
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
+    resources :customers, only: [:edit, :update]
+    resources :addresses, only: [:index, :create, :edit, :update, :destroy]
+    resources :items, only: [:index, :show]
+    post '/orders/confirm' => "orders#confirm"
+    get '/orders/thanks' => "orders#thanks", as: "thanks"
+    resources :orders, only: [:index, :show, :new, :create]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+
   end
 
   namespace :admin do

@@ -13,14 +13,12 @@ class Public::CustomersController < ApplicationController
     end
   end
 
-
-
   def show
     @customer = current_customer
   end
 
   def unsubscribe
-    #@customer = Customer.find(current_customer.id)
+
   end
 
   def withdraw
