@@ -8,8 +8,14 @@ class Admin::GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.save
-    redirect_to admin_genres_path
+    if @genre.save
+      redirect_to admin_genres_path
+    else
+      flash.now[:notice] = '入力してください'
+      @genres = Genre.all
+      @genre = Genre.new
+      render 'index'
+    end
   end
 
   def edit
@@ -21,6 +27,7 @@ class Admin::GenresController < ApplicationController
     if @genre.update(genre_params)
       redirect_to admin_genres_path
     else
+      flash.now[:notice] = '入力してください'
       render 'edit'
     end
   end
