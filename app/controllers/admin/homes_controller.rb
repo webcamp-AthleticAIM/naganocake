@@ -1,5 +1,5 @@
 class Admin::HomesController < ApplicationController
   def top
-    @orders = Order.page(params[:page]).per(8)
+    @orders = Order.where(customer_id: current_customer.id)
   end
 end
