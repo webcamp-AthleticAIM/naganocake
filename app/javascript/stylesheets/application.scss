@@ -32,6 +32,7 @@ li {
 
 a {
   text-decoration: none;
+  color: #ddd;
 }
 
 label {
@@ -45,8 +46,8 @@ input {
 }
 
 //headerの背景画像
-header {
- height: 150px;
+nav {
+ height: 200px;
  background-image: url("../images/top_header.jpg");
  background-repeat: no-repeat;
  background-position: center center;
@@ -54,12 +55,36 @@ header {
  opacity: 0.7;
 }
 
+//
+.navbar-brand {
+  font-size: 40px;
+  background: #deb887; /*背景色*/
+  padding: 0.2em;/*文字周りの余白*/
+  color: #000000;/*文字を白に*/
+  border-radius: 0.3em;/*角の丸み*/
+}
+
+//top
+.top-welcom {
+  background-image: linear-gradient(to top, #FEADA6 0%, #F5EFEF 100%);
+}
+
+.top-title {
+  font-size: 50px;
+}
+
+.top-text {
+  font-size: 30px;
+}
+
+//footer
 footer {
- height: 80px;
- background-image: url("../images/top_header.jpg");
+ height: 100px;
+ background-color: #deb887;
  background-repeat: no-repeat;
  background-position: center center;
  background-size: cover;
- opacity: 0.6;
 }
+
+
 
