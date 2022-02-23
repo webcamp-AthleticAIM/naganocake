@@ -60,13 +60,13 @@
         </table>
       </div>
       <div class="row text-center">
-        <%= form_with model: @order, url: thanks_path, method: :post, local: true do |f| %>
+        <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
           <%= f.hidden_field :payment %>
           <%= f.hidden_field :postal_code %>
           <%= f.hidden_field :address %>
           <%= f.hidden_field :name %>
           <%= f.hidden_field :postage %>
-          <%= f.hidden_field :total_payment %>
+          <%= f.hidden_field :total_payment, value: @total_payment %>
           <%= f.hidden_field :order_status %>
 
         <%= f.submit "注文を確定する", class: 'btn btn-success' %>

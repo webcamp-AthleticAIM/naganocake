@@ -5,16 +5,15 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @current_addresses = Customer.select(:postal_code, :address, :last_name, :first_name)
     @address = Address.new
-
   end
 
   def confirm
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
     #合計金額
-    p @total_price = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
+    @total_price = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     #送料込み請求金額
-    p @total_payment = @total_price + @order.postage
+    @total_payment = @total_price + @order.postage
     #配送先の選択肢によって動作を分岐
     if params[:order][:order_addresses] == '0'
       @order.postal_code = current_customer.postal_code
@@ -27,24 +26,23 @@ class Public::OrdersController < ApplicationController
         @order.postal_code = Address.find(params[:order][:address_id]).postal_code
       else
         render 'new'
+
       end
     elsif params[:order][:order_addresses] == '2' && @order.postal_code? && @order.address? && @order.name?
-
     else
       render 'new'
+
     end
   end
 
   def create
-    puts 'test'
-    #@order = Order.find(order_params)
     @cart_items = current_customer.cart_items.all
 
     @order = current_customer.orders.new(order_params)
     if @order.save
       #注文詳細に保存
       @cart_items.each do |cart|
-        p order_detail = OrderDetail.new
+      order_detail = OrderDetail.new
         order_detail.item_id = cart.item_id
         order_detail.order_id = @order.id
         order_detail.item_quantity = cart.item_amount
@@ -53,15 +51,12 @@ class Public::OrdersController < ApplicationController
       end
       #カート内商品を空にする
       current_customer.cart_items.destroy_all
-      redirect_to 'orders/thanks'
+      redirect_to thanks_path
     else
       @order = Order.new(order_params)
       render 'new'
     end
 
-  end
-
-  def thanks
   end
 
   def index
