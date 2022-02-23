@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -14,12 +15,12 @@ Rails.application.routes.draw do
     get '/customers/mypage' => "customers#show"
     get '/customers/unsubscribe' => "customers#unsubscribe"
     patch '/customers/withdraw' => "customers#withdraw"
-    post '/orders/confirm' => "orders#confirm"
-    get '/orders/thanks' => "order#thanks"
     delete '/cart_items/destroy_all' => "cart_items#destroy_all"
     resources :customers, only: [:edit, :update]
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :items, only: [:index, :show]
+    post '/orders/confirm' => "orders#confirm"
+    get '/orders/thanks' => "orders#thanks", as: "thanks"
     resources :orders, only: [:index, :show, :new, :create]
     resources :cart_items, only: [:index, :create, :update, :destroy]
 
