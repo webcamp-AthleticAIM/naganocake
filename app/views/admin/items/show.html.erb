@@ -1,29 +1,29 @@
-<div class="container">
+<div class="container px-5 mt-3">
+    <h3><mark>商品詳細</mark></h3>
     <div class="row">
-        <h3>商品詳細</h3>
         <div class="mt-5 col-md-5">
-            <%= attachment_image_tag @item, :image, size: "300x300" %>
+            <%= attachment_image_tag @item, :image, size: "300x200" %>
         </div>
         <div class="mt-5 col-md-5">
             <div class="row">
-                <p class="col-md-4">商品名</p>
-                <p class="col-md-8"><%= @item.name %></p>
+                <p class="col-md-5">商品名</p>
+                <p class="col-md-7"><%= @item.name %></p>
             </div>
             <div class="row">
-                <p class="col-md-4">商品説明</p>
-                <p class="col-md-8"><%= @item.introduction %></p>
+                <p class="col-md-5 mt-3">商品説明</p>
+                <p class="col-md-7 mt-3"><%= @item.introduction %></p>
             </div>
             <div class="row">
                 <p class="col-md-4">ジャンル</p>
                 <p class="col-md-8"><%= @item.genre.name %></p>
             </div>
             <div class="row">
-                <p class="col-md-4">税込価格<br>(税抜価格)</p>
-                <p class="col-md-8"><%= @item.add_tax_price.to_s(:delimited) %>( <%= @item.price %> ) 円</p>
+                <p class="col-md-5 mt-3">税込価格<br>(税抜価格)</p>
+                <p class="col-md-7 mt-3"><%= @item.add_tax_price.to_s(:delimited) %>( <%= @item.price %> ) 円</p>
             </div>
             <div class="row">
-                <p class="col-md-4">販売ステータス</p>
-                <p class="col-md-8">
+                <p class="col-md-5 mt-3">販売ステータス</p>
+                <p class="col-md-7 mt-3">
                     <% if @item.sales_status == true %>
                       <strong><span class="text-success">販売中</span></strong>
                     <% elsif @item.sales_status == false %>
@@ -31,7 +31,7 @@
                     <% end %>
                 </p>
             </div>
-            <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success btn-lg pull-right" %>
+            <%= link_to "編集する", edit_admin_item_path(@item.id), class: "btn btn-success btn-lg pull-right btn-sm mt-4" %>
         </div>
     </div>
 </div>
