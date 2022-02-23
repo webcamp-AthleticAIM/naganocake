@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>注文情報入力</h2>
+  <h3><mark>注文情報入力</mark></h3>
 
   <div class="row justify-content-center">
     <div class="col-md-10">
@@ -27,7 +27,7 @@
           <div>
             <%= f.radio_button :order_addresses, 1 %>
             <%= f.label :order_addresses_1, "登録済住所から選択" %></br>
-            <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display), size: 50 %>
+            <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display), size: 100 %>
           </div>
           <div>
             <%= f.radio_button :order_addresses, 2 %>
@@ -45,7 +45,7 @@
           </div>
         </div>
       <div class="row justify-content-center">
-        <%= f.submit "確認画面に進む", class: 'btn btn-primary' %>
+        <%= f.submit "確認画面に進む", class: 'btn btn-primary btn-sm' %>
       </div>
     <% end %>
     </div>

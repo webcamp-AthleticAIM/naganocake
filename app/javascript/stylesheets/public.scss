@@ -1,0 +1,21 @@
+//顧客共通スタイル
+.container {
+  margin-top: 50px;
+}
+
+h2,
+h3,
+h4 {
+  padding-bottom: 30px;
+  padding-left: 50px;
+}
+
+//入力欄
+input {
+  border-radius: 5px ;
+  border-width: 1px;
+}
+
+label {
+  width: 300px;
+}
