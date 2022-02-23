@@ -1,6 +1,8 @@
 <div class="container mt-5">
   <div class="row mx-5">
-    <%= render 'public/homes/genres' %>
+    <div class="col-md-3">
+      <%= render 'public/items/genres', genres: @genres %>
+    </div>
     <div class="col-md-8 offset-md-1">
       <div class="d-flex">
         <div class="image">

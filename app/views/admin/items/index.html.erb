@@ -16,6 +16,7 @@
               <th>商品ID</th>
               <th>商品名</th>
               <th>税抜価格</th>
+              <th>ジャンル</th>
               <th>ステータス</th>
             </tr>
           </thead>
@@ -25,6 +26,7 @@
               <td><%= item.id %></td>
               <td><%= item.name %></td>
               <td><%= item.price %></td>
+              <td><%= item.genre.name %></td>
               <td>
                 <% if item.sales_status == true %>
                   <strong><span class="text-success">販売中</span></strong>
