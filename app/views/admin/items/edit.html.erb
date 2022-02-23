@@ -10,7 +10,7 @@
     <% end %>
     <div class="row">
       <div class="mx-auto mt-5 col-md-5">
-        <%= form_with model:@item, url: admin_items_path, local:true do |f| %>
+        <%= form_with model: @item, url: admin_item_path(@item.id), local:true do |f| %>
    <!-- 商品画像 -->
       <div class="from-group">
         <%= f.label :商品画像 %>
@@ -48,8 +48,8 @@
         <%= f.radio_button :sales_status, false %>
         <%= f.label :sales_status, "販売停止中", value: :false %>
       </div>
-      
-      
+
+
         <%#= render 'from_item', item: @item %>
 
 
