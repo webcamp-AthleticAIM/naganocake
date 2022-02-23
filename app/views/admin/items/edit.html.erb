@@ -28,6 +28,11 @@
         <%= f.label :商品説明 %>
         <%= f.text_area :introduction %>
       </div>
+  <!-- ジャンル -->
+       <div class="form-group">
+        <%= f.label :ジャンル %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+      </div>
 
   <!-- 商品の税抜き価格 -->
       <div class="from-group">
