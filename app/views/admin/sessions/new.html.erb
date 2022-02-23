@@ -1,20 +1,16 @@
 <div class="container  mt-3">
+  <h3><mark>管理者ログイン</mark></h3>
+    <%= form_with model:@admin, url: admin_session_path, id: 'new_admin', class: 'new_admin' do |f| %>
 
-  <h3>管理者ログイン</h3>
+    <div class="field">
+      <%= f.label 'メールアドレス', class: "px-5 col-sm-3 mt-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "samlpe@example.com", class: "col-sm-4" %>
+    </div>
 
-
-
-      <%= form_with model:@admin, url: admin_session_path, id: 'new_admin', class: 'new_admin' do |f| %>
-
-      <div class="field">
-        <%= f.label 'メールアドレス', class: "px-5 col-sm-3 mt-3" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "samlpe@example.com", class: "col-sm-4" %>
-      </div>
-
-      <div class="field">
-        <%= f.label "パスワード", class: "px-5 col-sm-3" %>
-        <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-4 mt-2" %>
-      </div>
+    <div class="field">
+      <%= f.label "パスワード", class: "px-5 col-sm-3" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-4 mt-2" %>
+    </div>
 
       <!--<%# if devise_mapping.rememberable? %>-->
       <!--<div class="field">-->
@@ -23,11 +19,11 @@
       <!--</div>-->
       <!--<%# end %>-->
 
-      <div class="actions">
-        <%= f.submit "ログイン", class: "btn btn-primary offset-3 mt-3" %>
-      </div>
-      <% end %>
+    <div class="actions">
+      <%= f.submit "ログイン", class: "btn btn-primary offset-3 mt-3" %>
+    </div>
+    <% end %>
 
-      <%= render "admin/shared/links" %>
+    <%= render "admin/shared/links" %>
 
 </div>
