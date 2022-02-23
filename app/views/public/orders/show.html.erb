@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="bg-light text-secondary"><h2>注文履歴詳細</h2></div>
+      <table class="table">
+        <caption>注文情報</caption>
+        <tbody>
+          <tr>
+            <td>注文日</td>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+          <td>配送先</td>
+          <td>
+            <span>〒</span>
+            <%= @order.postal_code %>
+            <span> </span>
+            <%= @order.address %>
+          </td>
+        </tr>
+        <tr>
+          <td>支払方法</td>
+          <td>
+            <% payment_eg = Order.payment_methods.key((@order.payment).to_i) %>
+            <%= Order.payment_methods_i18n[payment_eg] %>
+          </td>
+        <tr>
+          <td>ステータス</td>
+          <td>
+            <% order_status_eg = Order.order_status_methods.key(@order.order_status) %>
+            <%= Order.order_status_methods_i18n[order_status_eg] %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table ml-3">
+      <tbody>
+        <tr>
+          <td>商品合計</td>
+          <td>
+            <% @order_details.each do |order_detail| %>
+              <% @total_amount += order_detail.item_quantity %>
+            <% end %>
+            <%= @total_amount %>
+          </td>
+        </tr>
+        <tr>
+          <td>配送料</td>
+          <td><%= @order.postage %></td>
+        </tr>
+         <tr>
+          <td><span><strong>ご請求額</strong></span></td>
+          <td><%= @order.total_payment %></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class=row></div>
+  </div>
+</div>

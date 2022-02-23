@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row ml-auto mt-5">
-    <div class="bg-light text-secondary"><h2>注文履歴詳細一覧</h2></div>
+    <div class="bg-light text-secondary"><h2>注文履歴詳細</h2></div>
     <table class="table mt-5">
       <tbody>
         <tr>
@@ -68,21 +68,23 @@
           </tbody>
         </table>
       </div>
-      <div class>
-        <table>
+      <div class="ml-5">
+        <table class="table">
           <tbody>
-            <tr></tr>
+            <tr>
+              <td><strong>合計金額</strong></td>
+              <td><%= @order.total_payment %></td>
+            </tr>
+            <tr>
+              <td><strong>送料</strong></td>
+              <td><%= @order.postage %></td>
+            </tr>
+            <tr>
+              <td><strong>請求金額</strong></td>
+              <td><%= @order.total_payment+@order.postage %></td>
+            </tr>
           </tbody>
         </table>
-        <div>
-          <span><strong>合計金額</strong><%= @order.total_payment %></span>
-        </div>
-        <div>
-          <span><strong>送料</strong><%= @order.postage %></span>
-        </div>
-        <div>
-          <span><strong>請求金額</strong><%= @order.total_payment+@order.postage %></span>
-        </div>
       </div>
   </div>
 </div>
