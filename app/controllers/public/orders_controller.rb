@@ -37,8 +37,7 @@ class Public::OrdersController < ApplicationController
 
   def create
     @cart_items = current_customer.cart_items.all
-
-    @order = current_customer.orders.new(order_params)
+    p @order = current_customer.orders.new(order_params)
     if @order.save
       #注文詳細に保存
       @cart_items.each do |cart|

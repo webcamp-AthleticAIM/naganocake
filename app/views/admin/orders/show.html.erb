@@ -59,8 +59,9 @@
               <td><%= order_detail.item_quantity %></td>
               <td><%= order_detail.price*order_detail.item_quantity %></td>
 
-              <%= form_with model: order_detail,url: admin_order_order_detail_path(order_detail),method: :patch,local: true do |f| %>
+              <%= form_with model: order_detail,url: admin_order_detail_path(order_detail),method: :patch,local: true do |f| %>
               <td><%= f.select :production_status_method, options_for_select(OrderDetail.production_status_methods.keys.map {|k| [I18n.t("enums.order_detail.production_status_method.#{k}"), k]},OrderDetail.production_status_methods.key(order_detail.production_status)) %></td>
+                <%= f.hidden_field :id, value: order_detail.id %>
               <td><%= f.submit "更新",class:"btn btn-success" %></td>
               <% end %>
             </tr>

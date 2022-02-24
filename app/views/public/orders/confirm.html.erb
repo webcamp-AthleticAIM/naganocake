@@ -35,12 +35,13 @@
           <label class='font-weight-bold'>支払方法</label>
             <% payment_eg = Order.payment_methods.key(@order.payment) %>
             <%= Order.payment_methods_i18n[payment_eg] %>
-
         </div>
         <div>
           <label class='font-weight-bold'>お届け先</label>
-          〒 <%= @order.postal_code %> <%= @order.address %></br>
-          <p class='text-center'><%= @order.name %></p>
+            <p class='text-center'>
+              〒 <%= @order.postal_code %> <%= @order.address %></br>
+              <%= @order.name %>
+            </p>
         </div>
       </div>
 
@@ -64,14 +65,14 @@
       </div>
       </div>
       <div class="row text-center">
-        <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-          <%= f.hidden_field :payment %>
-          <%= f.hidden_field :postal_code %>
-          <%= f.hidden_field :address %>
-          <%= f.hidden_field :name %>
-          <%= f.hidden_field :postage %>
-          <%= f.hidden_field :total_payment, value: @total_payment %>
-          <%= f.hidden_field :order_status %>
+      <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+        <%= f.hidden_field :payment %>
+        <%= f.hidden_field :postal_code %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :postage %>
+        <%= f.hidden_field :total_payment, value: @total_payment %>
+        <%= f.hidden_field :order_status %>
       </div>
         <div class='row justify-content-center mt-4'>
           <%= f.submit "注文を確定する", class: 'btn btn-success btn-sm' %>
