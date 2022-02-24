@@ -5,7 +5,7 @@
         <%= attachment_image_tag item, :image, size: "180x100" %><br>
         <% end %>
         <%= item.name %><br>
-        ￥<%= item.add_tax_price.to_s(:delimited) %>
+        <p class='mb-3'>￥<%= item.add_tax_price.to_s(:delimited) %></p>
       </div>
     <% end %>
   </div>
