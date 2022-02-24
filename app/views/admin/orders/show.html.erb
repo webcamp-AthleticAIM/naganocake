@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row ml-auto mt-5">
-    <div class="bg-light text-secondary"><h2>注文履歴詳細</h2></div>
+    <div class="bg-light text-secondary"><h3><mark>注文履歴詳細</mark></h3></div>
     <table class="table mt-5">
       <tbody>
         <tr>
@@ -31,7 +31,7 @@
           <td>
             <%= form_with model: @order,url: admin_order_path(@order),method: :patch,local: true do |f| %>
               <%= f.select :order_status_method, options_for_select(Order.order_status_methods.keys.map {|k| [I18n.t("enums.order.order_status_method.#{k}"), k]},Order.order_status_methods.key(@order.order_status))%>
-              <%= f.submit "更新",class:"btn btn-success" %>
+              <%= f.submit "更新",class:"btn btn-success ml-3" %>
             <% end %>
           </td>
         </tr>
@@ -40,7 +40,7 @@
 
     <div class="row">
       <div>
-        <table class="table">
+        <table class="table mt-5">
           <thead>
             <tr>
               <th><strong>商品名</strong></th>
@@ -69,19 +69,19 @@
         </table>
       </div>
       <div class="ml-5">
-        <table class="table">
+        <table class="table mt-5 ml-5">
           <tbody>
             <tr>
-              <td><strong>合計金額</strong></td>
-              <td><%= @order.total_payment %></td>
+              <td><strong>商品合計</strong></td>
+              <td><%= @order.total_payment %>　円</td>
             </tr>
             <tr>
               <td><strong>送料</strong></td>
-              <td><%= @order.postage %></td>
+              <td><%= @order.postage %>　円</td>
             </tr>
             <tr>
-              <td><strong>請求金額</strong></td>
-              <td><%= @order.total_payment+@order.postage %></td>
+              <td><strong>請求金額合計</strong></td>
+              <td><%= @order.total_payment+@order.postage %>　円</td>
             </tr>
           </tbody>
         </table>
