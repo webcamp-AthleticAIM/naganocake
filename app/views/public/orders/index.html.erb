@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="bg-light text-secondary"><h2>注文履歴一覧</h2></div>
-    <table class="table">
+    <div class="bg-light text-secondary"><h3><mark>注文履歴一覧</mark></h3></div>
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>注文日</th>
@@ -35,7 +35,7 @@
             <%= Order.order_status_methods_i18n[order_status_eg] %>
           </td>
           <td>
-            <%= link_to '表示する',order_path(order),class:"btn btn-primary" %>
+            <%= link_to '表示する',order_path(order),class:"btn btn-primary btn-sm" %>
           </td>
         </tr>
         <% end %>
