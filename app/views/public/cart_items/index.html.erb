@@ -2,11 +2,11 @@
   <div class="row d-flex mt-5">
     <h3><mark>ショッピングカート</mark></h3>
     <div class='ml-auto'>
-      <%= link_to "カートを空にする",cart_items_destroy_all_path, method: :delete, class:"btn btn-danger btn-sm" %>
+      <%= link_to "カートを空にする",cart_items_destroy_all_path, method: :delete, class: "btn btn-danger btn-sm" %>
     </div>
   </div>
 
-  <table class="table table table-bordered mt-5 ">
+  <table class="table table table-bordered mt-5">
     <thead>
       <tr>
         <th style="width: 40%">商品名</th>
@@ -27,7 +27,7 @@
           <td>
             <%= form_with model: cart_item,url: cart_item_path(cart_item),method: :patch,local: true do |f| %>
               <%= f.select :item_amount, *[1..100] %>
-              <%= f.submit "変更",class:"btn btn-success btn-sm mt-2" %>
+              <%= f.submit "変更",class: "btn btn-success btn-sm mt-2" %>
             <% end %>
           </td>
           <td><%= cart_item.subtotal %></td>
@@ -40,7 +40,7 @@
 
   <div class="d-flex row ml-auto mt-5">
     <div class="mr-auto ">
-      <%= link_to "買い物を続ける",items_path,class:"btn btn-primary btn-sm" %>
+      <%= link_to "買い物を続ける",items_path,class: "btn btn-primary btn-sm" %>
     </div>
     <div>
       <table class="table">

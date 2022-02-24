@@ -38,9 +38,11 @@
       </div>
 
       <div class="col mb-2">
-        <%= f.label 'パスワード' %>
-        <% if @minimum_password_length %>
-        (<%= @minimum_password_length %> 文字以上)
+        <%= f.label :password do %>
+          <span>パスワード</span>
+          <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 文字以上)
+          <% end %>
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>

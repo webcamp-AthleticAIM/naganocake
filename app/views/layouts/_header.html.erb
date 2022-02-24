@@ -10,8 +10,8 @@
           <% if admin_signed_in? %>
             <!--「root_path」となっている箇所は、適宜修正すること-->
             <%= link_to '商品一覧',admin_items_path,class: 'btn btn-dark mx-3 mt-2' %>
-            <%= link_to '会員一覧',root_path,class: 'btn btn-dark mx-3 mt-2' %>
-            <%= link_to '注文履歴一覧',root_path,class: 'btn btn-dark mx-3 mt-2' %>
+            <%= link_to '会員一覧',admin_customers_path,class: 'btn btn-dark mx-3 mt-2' %>
+            <%= link_to '注文履歴一覧',orders_path,class: 'btn btn-dark mx-3 mt-2' %>
             <%= link_to 'ジャンル一覧',admin_genres_path,class: 'btn btn-dark mx-3 mt-2' %>
             <%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class: 'btn btn-dark mx-3 mt-2' %>
           <% elsif customer_signed_in? %>
