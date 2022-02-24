@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
   def top
-    @orders = Order.where(customer_id: current_customer.id)
+    @orders = Order.all
+    @total_quantity = 0
   end
 end

@@ -32,7 +32,10 @@
           </tbody>
         </table>
         <div>
-          <label class='font-weight-bold'>支払方法</label>  <%= @order.payment %>
+          <label class='font-weight-bold'>支払方法</label>
+            <% payment_eg = Order.payment_methods.key(@order.payment) %>
+            <%= Order.payment_methods_i18n[payment_eg] %>
+
         </div>
         <div>
           <label class='font-weight-bold'>お届け先</label>
