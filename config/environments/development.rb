@@ -75,5 +75,6 @@ Rails.application.configure do
   # config.action
   #config.hosts << "6b921a5793924bb08e2ec3252edce1c7.vfs.cloud9.us-east-1.amazonaws.com"
   config.hosts << "ef113e4dff244d88a450fab339d6043e.vfs.cloud9.us-east-1.amazonaws.com"
+  config.hosts << "57ceb632aa804118a7aa406ad5b3a7c8.vfs.cloud9.us-east-1.amazonaws.com"
 
 end
