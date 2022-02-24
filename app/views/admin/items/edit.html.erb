@@ -10,7 +10,7 @@
     <% end %>
     <div class="row">
       <div class="mx-auto mt-5 col-md-5">
-        <%= form_with model:@item, url: admin_items_path, method: :patch, local:true do |f| %>
+        <%= form_with model:@item, url: admin_item_path(@item.id), method: :patch, local:true do |f| %>
         <!-- 商品画像 -->
         <div class="from-group row">
           <%= f.label :商品画像, class: "col-md-4" %>

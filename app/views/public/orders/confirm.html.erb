@@ -32,12 +32,14 @@
           </tbody>
         </table>
         <div>
-          <label class='font-weight-bold'>支払方法</label>  <%= @order.payment %>
+          <label class='font-weight-bold'>支払方法</label>  <%= @order.payment_method_i18n %>
         </div>
         <div>
           <label class='font-weight-bold'>お届け先</label>
-          〒 <%= @order.postal_code %> <%= @order.address %></br>
-          <p class='text-center'><%= @order.name %></p>
+            <p class='text-center'>
+              〒 <%= @order.postal_code %> <%= @order.address %></br>
+              <%= @order.name %>
+            </p>
         </div>
       </div>
 
@@ -62,7 +64,7 @@
       </div>
       <div class="row text-center">
         <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
-          <%= f.hidden_field :payment %>
+          <%= f.hidden_field :payment_method %>
           <%= f.hidden_field :postal_code %>
           <%= f.hidden_field :address %>
           <%= f.hidden_field :name %>

@@ -38,7 +38,7 @@ class Public::OrdersController < ApplicationController
   def create
     @cart_items = current_customer.cart_items.all
 
-    @order = current_customer.orders.new(order_params)
+    p @order = current_customer.orders.new(order_params)
     if @order.save
       #注文詳細に保存
       @cart_items.each do |cart|
@@ -72,7 +72,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :name, :postal_code, :address, :payment, :postage, :total_payment, :order_status)
+    params.require(:order).permit(:customer_id, :name, :postal_code, :address, :payment_method, :postage, :total_payment, :order_status)
   end
 
   def address_params
