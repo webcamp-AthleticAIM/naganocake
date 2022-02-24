@@ -21,7 +21,7 @@
         <tr>
           <td>支払方法</td>
           <td>
-            <% payment_eg = Order.payment_methods.key((@order.payment_method).to_i) %>
+            <% payment_eg = Order.payment_methods.key(@order.payment) %>
             <%= Order.payment_methods_i18n[payment_eg] %>
           </td>
         <tr>

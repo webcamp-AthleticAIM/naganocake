@@ -24,8 +24,9 @@
             </td>
             <td>
               <% order.order_details.each do |order_detail| %>
-                <%= order_detail.item_quantity %>
+                <% @total_quantity += order_detail.item_quantity %>
               <% end %>
+              <%= @total_quantity %>
             </td>
             <td>
               <% order_status_eg = Order.order_status_methods.key(order.order_status) %>
