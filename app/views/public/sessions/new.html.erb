@@ -6,12 +6,12 @@
     <%= form_with model: @customer, url: customer_session_path, id: 'new_customer', class: 'new_customer' do |f| %>
     <div class="col">
       <%= f.label 'メールアドレス' %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", size: 30 %>
     </div>
 
     <div class="col">
       <%= f.label 'パスワード' %>
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.password_field :password, autocomplete: "current-password", size: 30 %>
     </div>
 
     <div class="action text-center mt-4">
