@@ -1,7 +1,6 @@
 <h2>会員情報編集</h2>
 
 <%= form_with model: @customer, url: customers_mypage_path, id: 'edit_customer', class: 'edit_customer' do |f| %>
-  <%#= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label '名前' %>
