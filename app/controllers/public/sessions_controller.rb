@@ -30,8 +30,9 @@ class Public::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
 
-    if @customer.valid_password?(params[:customer][:password])
-
+    if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
+       flash[:notice] = "退会済みです。"
+        redirect_to root_path
     end
   end
 
