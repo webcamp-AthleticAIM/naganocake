@@ -1,0 +1,12 @@
+  <div class='container'>
+    <div class='row'>
+      <div class='col-3'>
+        <%= render 'public/items/genres', genres: @genres %>
+      </div>
+      <div class='col-9'>
+        <h3><mark>商品一覧(全<%= @items.count %>件)</mark></h3>
+         <%= render 'public/items/index', items: @items %>
+      </div>
+      <%= paginate @items %>
+    </div>
+  </div>

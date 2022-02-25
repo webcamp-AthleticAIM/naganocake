@@ -1,0 +1,75 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+//共通部分
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-text: 20px;
+  box-sizing: border-box;
+}
+
+
+a {
+  color: #000;
+}
+
+
+
+
+//入力欄
+input {
+  border-radius: 5px ;
+  border-width: 1px;
+}
+
+//headerの背景画像
+nav {
+ height: 200px;
+ background-image: url("../images/top_header.jpg");
+ background-repeat: no-repeat;
+ background-position: center center;
+ background-size: cover;
+ opacity: 0.7;
+}
+
+
+//heder内のロゴ
+.navbar-brand {
+  font-size: 40px;
+  background: #deb887;
+  padding: 0.2em;
+  color: #000000;
+  border-radius: 0.3em;
+}
+
+//top
+.top-welcom {
+  background-image: linear-gradient(to top, #FEADA6 0%, #F5EFEF 100%);
+  height: 300px;
+}
+
+.top-title {
+  font-size: 50px;
+}
+
+.top-text {
+  font-size: 30px;
+}
+
+//footer
+footer {
+ background-color: #deb887;
+ background-repeat: no-repeat;
+ background-position: center center;
+ background-size: cover;
+ opacity: 0.7;
+}
+
+
+.link {
+  background-color: #ffc0cb;
+}
